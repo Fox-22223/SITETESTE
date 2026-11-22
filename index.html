@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070b17">
+  <meta name="description" content="NOVA — uma experiência interativa para explorar planetas, missões e maravilhas do nosso sistema solar.">
+  <title>NOVA — Explore além do horizonte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+  <div class="sky-glow" aria-hidden="true"></div>
+  <div class="starfield" id="starfield" aria-hidden="true"></div>
+
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="#inicio" data-navigate="inicio" aria-label="NOVA, página inicial">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M24 2.5 29.3 18.7 45.5 24l-16.2 5.3L24 45.5l-5.3-16.2L2.5 24l16.2-5.3L24 2.5Z" fill="currentColor"/><circle cx="24" cy="24" r="4.5" fill="#08101D"/></svg>
+        </span>
+        <span class="brand-wordmark">NOVA<span class="brand-period">.</span><small>SPACE EXPLORATION</small></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <button type="button" class="nav-link is-active" data-view="inicio" aria-current="page">Início</button>
+        <button type="button" class="nav-link" data-view="explorar">Explorar</button>
+        <button type="button" class="nav-link" data-view="missoes">Missões</button>
+        <button type="button" class="nav-link" data-view="colecao">Coleção <span class="nav-count" id="nav-favorites-count" hidden>0</span></button>
+      </nav>
+
+      <div class="header-actions">
+        <span class="connection-indicator"><span class="connection-pulse"></span> CONEXÃO ESTABELECIDA</span>
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Ativar tema claro" title="Alternar tema">
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.9 13.3A9 9 0 0 1 10.7 3.1 9 9 0 1 0 20.9 13.3Z"/></svg>
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- INÍCIO -->
+      <section class="view is-active" id="view-inicio" aria-labelledby="home-title">
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-line"></span> O COSMOS ESTÁ CHAMANDO <span class="eyebrow-index">/ 001</span></div>
+            <h1 id="home-title">O infinito<br>é só o <span class="gradient-text">começo.</span></h1>
+            <p class="hero-description">Existem mundos esperando para serem descobertos. Explore o extraordinário, atravesse o desconhecido e encontre seu lugar no universo.</p>
+            <div class="hero-actions">
+              <button class="btn btn-primary" type="button" data-navigate="explorar">Começar exploração <span aria-hidden="true">↗</span></button>
+              <button class="btn btn-outline" type="button" data-navigate="missoes"><span class="play-glyph" aria-hidden="true">▶</span> Conhecer missões</button>
+            </div>
+            <div class="hero-people">
+              <div class="avatar-stack" aria-hidden="true"><span>✦</span><span>✳</span><span>✺</span></div>
+              <p><strong>Uma nova perspectiva</strong><br>sobre tudo o que existe.</p>
+            </div>
+          </div>
+
+          <div class="hero-art" role="img" aria-label="Ilustração animada de um planeta azul envolvido por órbitas luminosas e estrelas.">
+            <div class="art-grid"></div>
+            <div class="orbit orbit-outer"></div>
+            <div class="orbit orbit-middle"></div>
+            <div class="orbit orbit-inner"></div>
+            <div class="orbital-dot orbital-dot-one"></div>
+            <div class="orbital-dot orbital-dot-two"></div>
+            <div class="planet-halo"></div>
+            <div class="earth"><div class="earth-atmosphere"></div><div class="earth-shine"></div></div>
+            <div class="art-label label-a"><span class="art-label-dot"></span> SISTEMA SOLAR <small>0001 / ORIGEM</small></div>
+            <div class="art-label label-b"><span class="coordinates-icon">⌖</span> 51° 28′ 40.12″ <small>PLANETA TERRA</small></div>
+            <span class="art-cross cross-top">+</span><span class="art-cross cross-bottom">+</span>
+            <span class="art-vertical">NOVA / OBSERVATION DECK — 2026</span>
+          </div>
+
+          <div class="hero-side-note">DESLIZE PARA DESCOBRIR <span aria-hidden="true">↓</span></div>
+        </div>
+
+        <div class="stat-strip reveal">
+          <div class="stat-item"><span class="stat-icon">✦</span><div><strong>8 <span>planetas</span></strong><small>NO SISTEMA SOLAR</small></div></div>
+          <div class="stat-divider"></div>
+          <div class="stat-item"><span class="stat-icon">◉</span><div><strong>1 <span>estrela</span></strong><small>NO NOSSO SISTEMA</small></div></div>
+          <div class="stat-divider"></div>
+          <div class="stat-item"><span class="stat-icon">∞</span><div><strong>∞ <span>possibilidades</span></strong><small>ALÉM DO HORIZONTE</small></div></div>
+          <span class="stat-decor" aria-hidden="true">NOVA—EXPLORER</span>
+        </div>
+
+        <div class="section-heading reveal">
+          <div><p class="overline">01 / DESTINOS EM DESTAQUE</p><h2>Outros mundos.<br><span class="muted-heading">Novas histórias.</span></h2></div>
+          <button class="text-link" type="button" data-navigate="explorar">Ver todos os destinos <span aria-hidden="true">↗</span></button>
+        </div>
+
+        <div class="featured-grid">
+          <article class="featured-card featured-mars reveal">
+            <div class="featured-top"><span class="card-index">01 / PLANETA ROCHOSO</span><button class="favorite-btn" type="button" data-favorite="marte" aria-pressed="false" aria-label="Salvar Marte na coleção" title="Salvar na coleção">♡</button></div>
+            <div class="featured-orb planet-mars"></div>
+            <div class="featured-bottom"><div><span class="card-kicker">O PLANETA VERMELHO</span><h3>Marte</h3><p>A próxima grande fronteira.</p></div><button class="round-arrow" type="button" data-detail="marte" aria-label="Descobrir Marte">↗</button></div>
+          </article>
+
+          <article class="featured-card featured-saturn reveal">
+            <div class="featured-top"><span class="card-index">02 / GIGANTE GASOSO</span><button class="favorite-btn" type="button" data-favorite="saturno" aria-pressed="false" aria-label="Salvar Saturno na coleção" title="Salvar na coleção">♡</button></div>
+            <div class="featured-orb planet-saturn"><span class="saturn-ring"></span></div>
+            <div class="featured-bottom"><div><span class="card-kicker">O SENHOR DOS ANÉIS</span><h3>Saturno</h3><p>Beleza em escala cósmica.</p></div><button class="round-arrow" type="button" data-detail="saturno" aria-label="Descobrir Saturno">↗</button></div>
+          </article>
+
+          <article class="featured-card featured-neptune reveal">
+            <div class="featured-top"><span class="card-index">03 / GIGANTE DE GELO</span><button class="favorite-btn" type="button" data-favorite="netuno" aria-pressed="false" aria-label="Salvar Netuno na coleção" title="Salvar na coleção">♡</button></div>
+            <div class="featured-orb planet-neptune"></div>
+            <div class="featured-bottom"><div><span class="card-kicker">ALÉM DO CONHECIDO</span><h3>Netuno</h3><p>Nas profundezas do azul.</p></div><button class="round-arrow" type="button" data-detail="netuno" aria-label="Descobrir Netuno">↗</button></div>
+          </article>
+        </div>
+
+        <section class="home-banner reveal" aria-labelledby="banner-title">
+          <div class="banner-content"><p class="overline">02 / A JORNADA CONTINUA</p><h2 id="banner-title">Grandes descobertas<br>começam com <em>curiosidade.</em></h2><p>Conheça as missões conceituais do NOVA e imagine os próximos passos da exploração.</p><button class="btn btn-light" type="button" data-navigate="missoes">Explorar missões <span aria-hidden="true">↗</span></button></div>
+          <div class="banner-ring banner-ring-one"></div><div class="banner-ring banner-ring-two"></div><span class="banner-spark" aria-hidden="true">✳</span>
+        </section>
+      </section>
+
+      <!-- EXPLORAR -->
+      <section class="view" id="view-explorar" aria-labelledby="explore-title" hidden>
+        <div class="page-intro"><div><p class="overline"><span class="tiny-spark">✦</span> ARQUIVO CÓSMICO / 01</p><h1 id="explore-title">Um universo de <span class="gradient-text">descobertas.</span></h1><p>Escolha um destino, descubra suas características e salve os mundos que mais despertam sua curiosidade.</p></div><span class="intro-number" aria-hidden="true">01<span>/04</span></span></div>
+        <div class="explorer-toolbar">
+          <label class="search-field"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.7" cy="10.7" r="6.7"/><path d="m16 16 5 5"/></svg><input id="planet-search" type="search" placeholder="Pesquisar um planeta..." autocomplete="off" aria-label="Pesquisar planetas"><span class="search-shortcut">/</span></label>
+          <div class="filters" role="group" aria-label="Filtrar destinos"><button class="filter-btn is-active" type="button" data-filter="todos" aria-pressed="true">Todos</button><button class="filter-btn" type="button" data-filter="rochoso" aria-pressed="false">Rochosos</button><button class="filter-btn" type="button" data-filter="gigante" aria-pressed="false">Gigantes</button></div>
+        </div>
+        <div class="results-meta"><span id="result-count">06 DESTINOS ENCONTRADOS</span><span>CATÁLOGO / SISTEMA SOLAR</span></div>
+        <div class="planet-grid" id="planet-grid"></div>
+        <div class="empty-results" id="search-empty" hidden><span class="empty-symbol">⌕</span><h2>Nenhum planeta encontrado.</h2><p>Tente outro nome ou selecione uma categoria diferente.</p><button class="btn btn-outline" type="button" id="clear-filters">Limpar filtros</button></div>
+      </section>
+
+      <!-- MISSÕES -->
+      <section class="view" id="view-missoes" aria-labelledby="missions-title" hidden>
+        <div class="page-intro"><div><p class="overline"><span class="tiny-spark">✦</span> CENTRAL DE OPERAÇÕES / 02</p><h1 id="missions-title">O futuro está <span class="gradient-text">em movimento.</span></h1><p>Três missões fictícias. Três destinos extraordinários. Um convite para imaginar o amanhã da exploração espacial.</p></div><span class="intro-number" aria-hidden="true">02<span>/04</span></span></div>
+        <div class="mission-hero">
+          <div class="mission-hero-content"><span class="mission-status"><span class="connection-pulse"></span> MISSÃO CONCEITUAL EM DESTAQUE</span><p class="mission-code">NOVA / OPERATION 001</p><h2>AURORA <span>— I</span></h2><p>Uma jornada imaginária rumo à órbita de Marte. Prepare a contagem regressiva e experimente uma simulação de lançamento.</p><div class="mission-hero-actions"><button class="btn btn-primary" type="button" id="launch-sim">Iniciar simulação <span aria-hidden="true">↗</span></button><button class="btn btn-outline" type="button" data-mission="aurora">Detalhes da missão</button></div><div class="mission-disclaimer">EXPERIÊNCIA INTERATIVA • NÃO REPRESENTA UMA MISSÃO REAL</div></div>
+          <div class="mission-visual" aria-hidden="true"><div class="mission-orbit mission-orbit-one"></div><div class="mission-orbit mission-orbit-two"></div><div class="mission-mars"></div><svg class="mission-ship" viewBox="0 0 100 150" fill="none"><path d="M50 8C26 31 29 71 34 100h32c5-29 8-69-16-92Z" fill="#DDEBFA"/><path d="M50 8c8 8 14 23 17 40H33C36 31 42 16 50 8Z" fill="#83D9FB"/><rect x="43" y="63" width="14" height="19" rx="7" fill="#102D47"/><path d="m34 82-16 19v18l18-9M66 82l16 19v18l-18-9" fill="#A5B9D8"/><path d="M41 101h18l-9 39-9-39Z" fill="#7FE6FF" opacity=".85"/></svg><span class="mission-visual-label">DESTINO: MARTE<br>ALVO: ÓRBITA</span></div>
+        </div>
+        <div class="section-heading missions-section-heading"><div><p class="overline">03 / PROGRAMA DE EXPLORAÇÃO</p><h2>Próximas <span class="muted-heading">fronteiras.</span></h2></div><span class="mission-legend"><span class="legend-dot"></span> CENÁRIOS FICTÍCIOS</span></div>
+        <div class="mission-grid">
+          <article class="mission-card"><div class="mission-card-top"><span>NX–001</span><span class="mission-tag tag-cyan">SIMULAÇÃO</span></div><div class="mission-card-art"><div class="mission-card-orb planet-mars"></div></div><p class="card-kicker">DESTINO / MARTE</p><h3>Aurora I</h3><p>Um primeiro passo rumo ao desconhecido.</p><div class="mission-card-footer"><span>EXPLORAÇÃO ORBITAL</span><button type="button" class="round-arrow" data-mission="aurora" aria-label="Ver detalhes da missão Aurora I">↗</button></div></article>
+          <article class="mission-card"><div class="mission-card-top"><span>NX–002</span><span class="mission-tag tag-violet">CONCEITO</span></div><div class="mission-card-art"><div class="mission-card-orb planet-saturn"><span class="saturn-ring"></span></div></div><p class="card-kicker">DESTINO / TITÃ</p><h3>Titan Deep</h3><p>Segredos sob uma atmosfera dourada.</p><div class="mission-card-footer"><span>ESTUDO DE SUPERFÍCIE</span><button type="button" class="round-arrow" data-mission="titan" aria-label="Ver detalhes da missão Titan Deep">↗</button></div></article>
+          <article class="mission-card"><div class="mission-card-top"><span>NX–003</span><span class="mission-tag tag-amber">IDEAÇÃO</span></div><div class="mission-card-art"><div class="mission-card-orb planet-neptune"></div></div><p class="card-kicker">DESTINO / NETUNO</p><h3>Blue Horizon</h3><p>Uma janela para o limite do sistema solar.</p><div class="mission-card-footer"><span>SONDA DE LONGO ALCANCE</span><button type="button" class="round-arrow" data-mission="blue" aria-label="Ver detalhes da missão Blue Horizon">↗</button></div></article>
+        </div>
+      </section>
+
+      <!-- COLEÇÃO -->
+      <section class="view" id="view-colecao" aria-labelledby="collection-title" hidden>
+        <div class="page-intro"><div><p class="overline"><span class="tiny-spark">✦</span> SEU ARQUIVO PESSOAL / 03</p><h1 id="collection-title">Seus mundos <span class="gradient-text">favoritos.</span></h1><p>Um lugar para guardar as descobertas que mais chamaram sua atenção. Tudo fica salvo neste navegador.</p></div><span class="intro-number" aria-hidden="true">03<span>/04</span></span></div>
+        <div class="collection-summary"><div><span class="overline">SUA COLEÇÃO</span><strong id="favorite-total">00</strong><span>DESTINOS SALVOS</span></div><div class="collection-summary-symbol" aria-hidden="true">✳</div></div>
+        <div class="planet-grid" id="favorites-grid"></div>
+        <div class="collection-empty" id="collection-empty" hidden><div class="collection-empty-art"><span>✦</span><div class="empty-orbit"></div></div><h2>Sua jornada começa aqui.</h2><p>Você ainda não salvou nenhum destino. Explore o catálogo e toque no coração para criar sua coleção.</p><button class="btn btn-primary" type="button" data-navigate="explorar">Descobrir planetas <span aria-hidden="true">↗</span></button></div>
+      </section>
+    </main>
+
+    <footer class="footer"><div class="footer-brand"><span class="footer-spark">✦</span> NOVA<span class="brand-period">.</span> <small>EXPLORE BEYOND</small></div><p>Uma experiência independente de exploração e imaginação. Não afiliada a agências espaciais.</p><span>FEITO PARA OS CURIOSOS <span aria-hidden="true">↗</span></span></footer>
+  </div>
+
+  <dialog class="info-dialog" id="info-dialog" aria-label="Detalhes do destino ou missão"><button class="dialog-close" type="button" data-close-dialog aria-label="Fechar janela">×</button><div id="dialog-content"></div></dialog>
+  <dialog class="launch-dialog" id="launch-dialog" aria-labelledby="launch-title"><button class="dialog-close" type="button" data-close-launch aria-label="Fechar simulação">×</button><div class="launch-content"><span class="overline">NOVA / SIMULADOR DE LANÇAMENTO</span><div class="launch-emblem" aria-hidden="true">✦</div><h2 id="launch-title">Preparar para decolagem</h2><p id="launch-message" aria-live="polite">Iniciando contagem regressiva simulada...</p><strong id="launch-counter" aria-live="off">03</strong><div class="launch-progress"><span id="launch-progress-fill"></span></div><div class="launch-buttons"><button class="btn btn-outline" id="restart-launch" type="button" hidden>Repetir simulação</button><button class="btn btn-primary" data-close-launch type="button">Concluir</button></div><small>ESTA É UMA SIMULAÇÃO FICTÍCIA, SEM CONEXÃO COM SISTEMAS REAIS.</small></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
