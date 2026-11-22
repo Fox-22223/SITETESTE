@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="NOVA">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b8faf3"/><stop offset=".58" stop-color="#76d6e8"/><stop offset="1" stop-color="#afa5fd"/></linearGradient></defs>
+  <rect width="64" height="64" rx="16" fill="#0b1528"/>
+  <path d="M32 7 38.3 25.7 57 32l-18.7 6.3L32 57l-6.3-18.7L7 32l18.7-6.3L32 7Z" fill="url(#g)"/>
+  <circle cx="32" cy="32" r="5.5" fill="#0b1528"/>
+</svg>
